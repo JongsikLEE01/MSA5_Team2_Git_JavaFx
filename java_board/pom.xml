@@ -26,7 +26,8 @@
             <artifactId>ojdbc8</artifactId>
             <version>21.5</version>
             <scope>system</scope>
-            <systemPath>C:\SETUP\WINDOWS.X64_193000_db_home\jdbc\lib\ojdbc8.jar</systemPath>
+            <systemPath>C:\JSLEE\setup\WINDOWS.X64_193000_db_home\jdbc\lib\ojdbc8.jar</systemPath>
+            <!-- <systemPath>C:\SETUP\WINDOWS.X64_193000_db_home\jdbc\lib\ojdbc8.jar</systemPath> -->
         </dependency>
     </dependencies>
     <build>
