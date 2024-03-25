@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ListController implements Initializable {
@@ -33,6 +34,8 @@ public class ListController implements Initializable {
 	public TableColumn<Board, String> colRegDate;
 	@FXML
 	public TableColumn<Board, String> colView;
+	@FXML
+	public TextField BoardSelectNo;
 
 	private BoardService boardService = new BoardServiceImpl();
 
