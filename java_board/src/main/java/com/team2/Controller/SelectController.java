@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class InsertController {
+public class SelectController {
 
     @FXML
     private TextArea tContent;
@@ -20,15 +20,22 @@ public class InsertController {
     @FXML
     private TextField tWriter;
 
-    // 글쓰기 -> 목록
+    // 글 수정 -> 목록
     @FXML
-    void moveToInsert(ActionEvent event) throws IOException {
+    void moveToUpdate(ActionEvent event) throws IOException {
         App.setRoot("board/list");
     }
 
-    // 글쓰기 취소 -> 목록
+    // 글 삭제 -> 목록
+    @FXML
+    void moveToDelete(ActionEvent event) throws IOException {
+        App.setRoot("board/list");
+    }
+
+    // 수정 취소 -> 목록
     @FXML
     void moveToList(ActionEvent event) throws IOException {
         App.setRoot("board/list");
     }
+
 }
