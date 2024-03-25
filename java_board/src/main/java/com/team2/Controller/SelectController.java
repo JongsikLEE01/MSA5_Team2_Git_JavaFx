@@ -13,12 +13,12 @@ public class SelectController {
 
     @FXML
     private TextArea tContent;
-
     @FXML
     private TextField tTtile;
-
     @FXML
     private TextField tWriter;
+
+    // db 데이터
 
     // 글 수정 -> 목록
     @FXML
