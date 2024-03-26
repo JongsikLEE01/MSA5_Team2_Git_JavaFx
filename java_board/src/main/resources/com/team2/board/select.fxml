@@ -9,27 +9,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team2.Controller.SelectController">
    <children>
-      <Label layoutX="417.0" layoutY="48.0" text="글수정">
+      <Label layoutX="393.0" layoutY="32.0" text="게시글 수정">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="tTtile" layoutX="257.0" layoutY="125.0" prefHeight="59.0" prefWidth="584.0">
+      <TextField fx:id="tTtile" layoutX="258.0" layoutY="161.0" prefHeight="50.0" prefWidth="584.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="107.0" layoutY="136.0" text="제목">
+      <Label layoutX="123.0" layoutY="168.0" text="제목">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="tWriter" layoutX="257.0" layoutY="228.0" prefHeight="59.0" prefWidth="584.0">
+      <TextField fx:id="tWriter" layoutX="258.0" layoutY="237.0" prefHeight="59.0" prefWidth="584.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="107.0" layoutY="239.0" text="작성자">
+      <Label layoutX="107.0" layoutY="248.0" text="작성자">
          <font>
             <Font size="31.0" />
          </font>
@@ -39,20 +39,21 @@
             <Font size="20.0" />
          </font>
       </TextArea>
-      <Button layoutX="684.0" layoutY="544.0" mnemonicParsing="false" onAction="#moveToUpdate" prefHeight="50.0" prefWidth="158.0" text="수정">
+      <Button layoutX="684.0" layoutY="555.0" mnemonicParsing="false" onAction="#moveToUpdate" prefHeight="50.0" prefWidth="158.0" text="수정">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="510.0" layoutY="544.0" mnemonicParsing="false" onAction="#moveToDelete" prefHeight="50.0" prefWidth="158.0" text="삭제">
+      <Button layoutX="107.0" layoutY="555.0" mnemonicParsing="false" onAction="#moveToList" prefHeight="50.0" prefWidth="158.0" text="목록">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="107.0" layoutY="544.0" mnemonicParsing="false" onAction="#moveToList" prefHeight="50.0" prefWidth="158.0" text="목록">
+      <Label layoutX="73.0" layoutY="99.0" text="현재 글번호">
          <font>
-            <Font size="24.0" />
+            <Font size="31.0" />
          </font>
-      </Button>
+      </Label>
+      <TextField fx:id="tNo" layoutX="258.0" layoutY="90.0" prefHeight="50.0" prefWidth="161.0" />
    </children>
 </AnchorPane>

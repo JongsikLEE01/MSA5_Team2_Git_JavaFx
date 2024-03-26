@@ -28,12 +28,13 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="732.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToInsert" prefHeight="38.0" prefWidth="101.0" text="글쓰기" />
-      <Button layoutX="732.0" layoutY="86.0" mnemonicParsing="false" onAction="#moveToSelect" prefHeight="38.0" prefWidth="101.0" text="글조회" />
-      <TextField fx:id="BoardSelectNo" layoutX="532.0" layoutY="90.0" prefHeight="30.0" prefWidth="158.0" />
-      <Label layoutX="457.0" layoutY="93.0" text="글번호">
+      <Button layoutX="732.0" layoutY="86.0" mnemonicParsing="false" onAction="#moveToDelete" prefHeight="38.0" prefWidth="101.0" text="글삭제" />
+      <TextField fx:id="BoardSelectNo" layoutX="171.0" layoutY="90.0" prefHeight="30.0" prefWidth="158.0" />
+      <Label layoutX="96.0" layoutY="93.0" text="글번호">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <Button layoutX="613.0" layoutY="86.0" mnemonicParsing="false" onAction="#moveToSelect" prefHeight="38.0" prefWidth="101.0" text="글조회" />
    </children>
 </AnchorPane>
