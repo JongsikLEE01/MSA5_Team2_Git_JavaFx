@@ -1,24 +1,16 @@
 package com.team2.Controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 
 import com.team2.App;
-import com.team2.Controller.ListController;
-import com.team2.DTO.Board;
-import com.team2.Service.BoardService;
-import com.team2.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
-public class SelectController implements Initializable {
+//  implements Initializable
+public class SelectController {
 
     ListController LC = new ListController();
 
@@ -31,7 +23,7 @@ public class SelectController implements Initializable {
     @FXML
     private TextField tWriter;
 
-    private BoardService boardService = new BoardServiceImpl();
+    // private BoardService boardService = new BoardServiceImpl();
 
     // 글 수정 완료 -> 목록
     @FXML
@@ -46,11 +38,9 @@ public class SelectController implements Initializable {
         App.setRoot("board/list");
     }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        // int bno = LC.getBSN();
-        // tNo.setText(Integer.toString(bno));
-
-        // List<Board> boardList = boardService.list();
-    }
+    // @Override
+    // public void initialize(URL arg0, ResourceBundle arg1) {
+    // int bno = LC.getBSN();
+    // tNo.setText(Integer.toString(bno));
+    // }
 }

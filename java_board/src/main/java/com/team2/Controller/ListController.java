@@ -45,18 +45,6 @@ public class ListController implements Initializable {
 
 	private BoardService boardService = new BoardServiceImpl();
 
-	// public int getBSN() {
-	// String BoardNo = BoardSelectNo.getText();
-	// int bNo = Integer.parseInt(BoardNo);
-
-	// BSN = bNo;
-	// return BSN;
-	// }
-
-	// public void setBSN(int BSN) {
-	// this.BSN = BSN;
-	// }
-
 	// 글 쓰기
 	@FXML
 	void moveToInsert(ActionEvent event) throws IOException {
@@ -66,6 +54,7 @@ public class ListController implements Initializable {
 	// 글 조회
 	@FXML
 	void moveToSelect(ActionEvent event) throws IOException {
+		// boardService.select(getBSN());
 		App.setRoot("board/select");
 	}
 
