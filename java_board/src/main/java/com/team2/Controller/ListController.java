@@ -45,20 +45,21 @@ public class ListController implements Initializable {
 
 	private BoardService boardService = new BoardServiceImpl();
 
-	public int getBSN() {
-		return BSN;
-	}
-	public void setBSN(int BSN) {
-		this.BSN = BSN;
-	}
+	// public int getBSN() {
+	// String BoardNo = BoardSelectNo.getText();
+	// int bNo = Integer.parseInt(BoardNo);
 
-	// 글 수정
+	// BSN = bNo;
+	// return BSN;
+	// }
+
+	// public void setBSN(int BSN) {
+	// this.BSN = BSN;
+	// }
+
+	// 글 쓰기
 	@FXML
 	void moveToInsert(ActionEvent event) throws IOException {
-		String BoardNo = BoardSelectNo.getText();
-		int bNo = Integer.parseInt(BoardNo);
-
-		BSN = bNo;
 		App.setRoot("board/insert");
 	}
 
@@ -67,19 +68,19 @@ public class ListController implements Initializable {
 	void moveToSelect(ActionEvent event) throws IOException {
 		App.setRoot("board/select");
 	}
-	
+
 	// 글 삭제
 	@FXML
-    void moveToDelect(ActionEvent event) throws IOException {
+	void moveToDelete(ActionEvent event) throws IOException {
 		Alert alertDel = new Alert(AlertType.CONFIRMATION);
 		alertDel.setTitle("게시글 삭제");
 		alertDel.setHeaderText("정말 삭제하시겠습니까?");
 		alertDel.setContentText("삭제된 내용은 되돌릴 수 없습니다.");
 		Optional<ButtonType> result = alertDel.showAndWait();
-		if (result.get() == ButtonType.OK){
+		if (result.get() == ButtonType.OK) {
 			String BoardNo = BoardSelectNo.getText();
 			int bNo = Integer.parseInt(BoardNo);
-			
+
 			boardService.delete(bNo);
 			System.out.println("삭제 완료");
 			App.setRoot("board/list");
@@ -88,7 +89,7 @@ public class ListController implements Initializable {
 			alertBack.setContentText("삭제가 취소되었습니다.");
 			alertBack.show();
 		}
-    }
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

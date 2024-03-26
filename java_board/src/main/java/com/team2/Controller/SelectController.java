@@ -18,8 +18,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+public class SelectController implements Initializable {
 
-public class SelectController implements Initializable{
+    ListController LC = new ListController();
 
     @FXML
     private TextArea tContent;
@@ -30,11 +31,12 @@ public class SelectController implements Initializable{
     @FXML
     private TextField tWriter;
 
-    // private BoardService boardService = new BoardServiceImpl();
+    private BoardService boardService = new BoardServiceImpl();
 
     // 글 수정 완료 -> 목록
     @FXML
-    void moveToDelete(ActionEvent event) throws IOException {
+    void moveToUpdate(ActionEvent event) throws IOException {
+
         App.setRoot("board/list");
     }
 
@@ -46,6 +48,9 @@ public class SelectController implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // tNo.setText(toString());
+        // int bno = LC.getBSN();
+        // tNo.setText(Integer.toString(bno));
+
+        // List<Board> boardList = boardService.list();
     }
 }
