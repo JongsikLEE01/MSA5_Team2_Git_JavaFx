@@ -15,14 +15,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+// import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+// import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+// import javafx.stage.Stage;
 
 public class ListController implements Initializable {
 	@FXML
@@ -38,24 +40,8 @@ public class ListController implements Initializable {
 	public TableColumn<Board, String> colRegDate;
 	@FXML
 	public TableColumn<Board, String> colView;
-	@FXML
-	public TextField BoardSelectNo;
-
-	public int BSN;
 
 	private BoardService boardService = new BoardServiceImpl();
-
-	// public int getBSN() {
-	// String BoardNo = BoardSelectNo.getText();
-	// int bNo = Integer.parseInt(BoardNo);
-
-	// BSN = bNo;
-	// return BSN;
-	// }
-
-	// public void setBSN(int BSN) {
-	// this.BSN = BSN;
-	// }
 
 	// 글 쓰기
 	@FXML
@@ -66,6 +52,11 @@ public class ListController implements Initializable {
 	// 글 조회
 	@FXML
 	void moveToSelect(ActionEvent event) throws IOException {
+		// int BoardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
+
+		// SelectController sc = new SelectController();
+
+		// sc.read(BoardNo);
 		App.setRoot("board/select");
 	}
 
@@ -77,11 +68,11 @@ public class ListController implements Initializable {
 		alertDel.setHeaderText("정말 삭제하시겠습니까?");
 		alertDel.setContentText("삭제된 내용은 되돌릴 수 없습니다.");
 		Optional<ButtonType> result = alertDel.showAndWait();
-		if (result.get() == ButtonType.OK) {
-			String BoardNo = BoardSelectNo.getText();
-			int bNo = Integer.parseInt(BoardNo);
 
-			boardService.delete(bNo);
+		if (result.get() == ButtonType.OK) {
+			int BoardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
+
+			boardService.delete(BoardNo);
 			System.out.println("삭제 완료");
 			App.setRoot("board/list");
 		} else {
@@ -103,8 +94,7 @@ public class ListController implements Initializable {
 		colView.setCellValueFactory(new PropertyValueFactory<>("View"));
 
 		// 테이블뷰에 데이터 추가하기
-		ObservableList<Board> list = FXCollections.observableArrayList(
-				boardList);
+		ObservableList<Board> list = FXCollections.observableArrayList(boardList);
 
 		boardTableView.setItems(list);
 	}

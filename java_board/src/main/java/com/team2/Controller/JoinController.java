@@ -12,7 +12,6 @@ public class JoinController {
 
     @FXML
     private TextField tid;
-
     @FXML
     private TextField tpwd;
 

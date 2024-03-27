@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +14,7 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <TableView fx:id="boardTableView" layoutX="94.0" layoutY="137.0" prefHeight="388.0" prefWidth="740.0">
+      <TableView fx:id="boardTableView" layoutX="94.0" layoutY="91.0" prefHeight="434.0" prefWidth="740.0">
         <columns>
           <TableColumn fx:id="colNo" prefWidth="60.0" text="번호" />
           <TableColumn fx:id="colTitle" prefWidth="320.0" text="제목" />
@@ -28,13 +27,7 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="732.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToInsert" prefHeight="38.0" prefWidth="101.0" text="글쓰기" />
-      <Button layoutX="732.0" layoutY="86.0" mnemonicParsing="false" onAction="#moveToDelete" prefHeight="38.0" prefWidth="101.0" text="글삭제" />
-      <TextField fx:id="BoardSelectNo" layoutX="171.0" layoutY="90.0" prefHeight="30.0" prefWidth="158.0" />
-      <Label layoutX="96.0" layoutY="93.0" text="글번호">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="613.0" layoutY="86.0" mnemonicParsing="false" onAction="#moveToSelect" prefHeight="38.0" prefWidth="101.0" text="글조회" />
+      <Button layoutX="94.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToDelete" prefHeight="38.0" prefWidth="101.0" text="글삭제" />
+      <Button layoutX="618.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToSelect" prefHeight="38.0" prefWidth="101.0" text="글조회" />
    </children>
 </AnchorPane>
