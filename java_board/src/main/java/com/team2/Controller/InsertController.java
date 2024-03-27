@@ -23,6 +23,7 @@ public class InsertController {
     // 글쓰기 -> 목록
     @FXML
     void moveToInsert(ActionEvent event) throws IOException {
+
         App.setRoot("board/list");
     }
 

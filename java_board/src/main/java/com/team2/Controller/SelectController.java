@@ -39,7 +39,6 @@ public class SelectController implements Initializable {
     // 글 수정 완료 -> 목록
     @FXML
     void moveToUpdate(ActionEvent event) throws IOException {
-
         App.setRoot("board/list");
     }
 
