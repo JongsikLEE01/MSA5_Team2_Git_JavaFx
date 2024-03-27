@@ -2,18 +2,19 @@ package com.team2.DTO;
 
 import java.util.Date;
 
-/** (DTO)
- *  게시글 정보
- *  - 게시글 번호
- *  - 제목
- *  - 작성자
- *  - 내용
- *  - 등록일자
- *  - 수정일자
- *  - 조회수
+/**
+ * (DTO)
+ * 게시글 정보
+ * - 게시글 번호
+ * - 제목
+ * - 작성자
+ * - 내용
+ * - 등록일자
+ * - 수정일자
+ * - 조회수
  */
 public class Board {
-	
+
 	private int no;
 	private String title;
 	private String writer;
@@ -21,7 +22,6 @@ public class Board {
 	private Date regDate;
 	private Date updDate;
 	private int view;
-	
 
 	// 생성자
 	public Board() {
@@ -92,10 +92,9 @@ public class Board {
 		this.view = view;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Board [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
 				+ regDate + ", updDate=" + updDate + "]";
-	}	
+	}
 }
