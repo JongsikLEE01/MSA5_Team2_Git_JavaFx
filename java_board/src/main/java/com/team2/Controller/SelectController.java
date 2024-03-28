@@ -47,10 +47,10 @@ public class SelectController {
         alertDel.setContentText("수정된 내용은 되돌릴 수 없습니다.");
         Optional<ButtonType> result1 = alertDel.showAndWait();
 
-        // 수정 확인
+        // 알림창 확인 -> 수정후 목록
         if (result1.get() == ButtonType.OK) {
             board.setNo(srcNo);
-            int result = boardService.update(board);
+            boardService.update(board);
             alertBack.setContentText("수정이 되었습니다.");
             alertBack.show();
             App.setRoot("board/list");
@@ -58,10 +58,6 @@ public class SelectController {
             alertBack.setContentText("수정이 취소되었습니다.");
             alertBack.show();
         }
-
-        // 수정할 게시글 번호와 수정될 게시글의 번호가 맞는지 확인
-        // if (board.getNo() == srcNo) {
-
     }
 
     // 수정 취소 -> 목록

@@ -1,7 +1,6 @@
 package com.team2;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import com.team2.DAO.JDBConnection;
 
@@ -9,9 +8,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 /**
@@ -23,11 +19,18 @@ public class App extends Application {
 
     private static Scene scene;
 
+    static Stage window;
+
     @Override
     public void start(Stage stage) throws IOException {
+        window = stage;
         scene = new Scene(loadFXML("board/login"));
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void exit() {
+        window.close();
     }
 
     public static void setRoot(String fxml) throws IOException {

@@ -29,5 +29,6 @@
       <Button layoutX="732.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToInsert" prefHeight="38.0" prefWidth="101.0" text="글쓰기" />
       <Button layoutX="94.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToDelete" prefHeight="38.0" prefWidth="101.0" text="글삭제" />
       <Button layoutX="618.0" layoutY="537.0" mnemonicParsing="false" onAction="#moveToSelect" prefHeight="38.0" prefWidth="101.0" text="글조회" />
+      <Button layoutX="732.0" layoutY="44.0" mnemonicParsing="false" onAction="#close" prefHeight="38.0" prefWidth="101.0" text="종료" />
    </children>
 </AnchorPane>
