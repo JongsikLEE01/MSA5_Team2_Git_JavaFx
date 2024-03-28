@@ -15,23 +15,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-// import javafx.fxml.FXMLLoader;
-// import javafx.fxml.FXMLLoader;
-// import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-// import javafx.scene.Scene;
-// import javafx.scene.Node;
-// import javafx.scene.Parent;
-// import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-// import javafx.stage.Stage;
-// import javafx.scene.input.MouseEvent;
-// import javafx.stage.Stage;
 
 public class ListController implements Initializable {
 	@FXML
@@ -48,6 +38,9 @@ public class ListController implements Initializable {
 	@FXML
 	public TableColumn<Board, String> colView;
 
+	Alert alertDel = new Alert(AlertType.CONFIRMATION);
+	Alert alertBack = new Alert(AlertType.INFORMATION);
+
 	private BoardService boardService = new BoardServiceImpl();
 
 	// 글 쓰기
@@ -59,18 +52,12 @@ public class ListController implements Initializable {
 	// 글 조회
 	@FXML
 	void moveToSelect(ActionEvent event) throws IOException {
-		// int BoardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
-
-		// SelectController sc = new SelectController();
-
-		// sc.read(BoardNo);
 		App.setRoot("board/select");
 	}
 
 	// 글 삭제
 	@FXML
 	void moveToDelete(ActionEvent event) throws IOException {
-		Alert alertDel = new Alert(AlertType.CONFIRMATION);
 		alertDel.setTitle("게시글 삭제");
 		alertDel.setHeaderText("정말 삭제하시겠습니까?");
 		alertDel.setContentText("삭제된 내용은 되돌릴 수 없습니다.");
@@ -83,7 +70,6 @@ public class ListController implements Initializable {
 			System.out.println("삭제 완료");
 			App.setRoot("board/list");
 		} else {
-			Alert alertBack = new Alert(AlertType.INFORMATION);
 			alertBack.setContentText("삭제가 취소되었습니다.");
 			alertBack.show();
 		}
@@ -104,35 +90,21 @@ public class ListController implements Initializable {
 		ObservableList<Board> list = FXCollections.observableArrayList(boardList);
 
 		boardTableView.setItems(list);
+	}
 
-		// boardTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-		// public void handle(MouseEvent e) {
-		// if (e.getClickCount() == 2 &&
-		// boardTableView.getSelectionModel().getSelectedItem() != null) {
-		// int BoardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
-		// System.out.println("글번호 : " + BoardNo);
-		// try {
-		// FXMLLoader FXL = new
-		// FXMLLoader(getClass().getResource("/com/team2/board/select.fxml"));
-		// Parent root = FXL.load();
+	// 프로그램 종료
+	@FXML
+	void close(ActionEvent event) {
+		alertDel.setTitle("프로그램 종료");
+		alertDel.setHeaderText("정말 종료하시겠습니까?");
+		alertDel.setContentText("게시판 프로그램을 종료하시겠습니까?");
+		Optional<ButtonType> result = alertDel.showAndWait();
 
-		// System.out.println("FXL : " + FXL.toString());
-		// SelectController sc = FXL.getController();
-		// System.out.println("sc : " + sc);
-		// sc.read(BoardNo);
-
-		// Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		// Scene scene = new Scene(root);
-		// stage.setScene(scene);
-		// stage.show();
-		// // App.setRoot("board/select");
-
-		// } catch (IOException e1) {
-		// // TODO Auto-generated catch block
-		// e1.printStackTrace();
-		// }
-		// }
-		// }
-		// });
+		if (result.get() == ButtonType.OK) {
+			App.exit();
+		} else {
+			alertBack.setContentText("프로그램 종료가 취소되었습니다.");
+			alertBack.show();
+		}
 	}
 }
