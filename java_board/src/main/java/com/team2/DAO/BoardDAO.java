@@ -1,5 +1,7 @@
 package com.team2.DAO;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,7 @@ public class BoardDAO extends JDBConnection {
 				board.setContent(rs.getString("content"));
 				board.setRegDate(rs.getTimestamp("reg_date"));
 				board.setUpdDate(rs.getTimestamp("upd_date"));
+				board.setViews(rs.getInt("Views"));
 
 				// 게시글 목록에 추가
 				boardList.add(board);
@@ -62,15 +65,23 @@ public class BoardDAO extends JDBConnection {
 		String sql = " SELECT * "
 				+ " FROM board "
 				+ " WHERE no = ? ";
+
+		// 조회수 sql
+		String viewsql = " UPDATE BOARD "
+				+ " SET VIEWS = VIEWS"
+				+ " WHERE no = ? ";
 		try {
 			// 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
 			psmt = con.prepareStatement(sql);
+			PreparedStatement psmt2 = con.prepareStatement(viewsql);
 
 			// psmt.setXXX( 순서번호, 매핑할 값 );
 			psmt.setInt(1, no); // ?(1) <-- no (글번호)
+			psmt2.setInt(1, no);
 
 			// 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
 			rs = psmt.executeQuery();
+			ResultSet rs2 = psmt2.executeQuery();
 
 			// 조회 결과를 1건 가져오기
 			if (rs.next()) { // next() : 실행 결과의 다음 데이터로 이동
@@ -84,17 +95,7 @@ public class BoardDAO extends JDBConnection {
 				board.setRegDate(rs.getTimestamp("reg_date"));
 				board.setUpdDate(rs.getTimestamp("upd_date"));
 
-				stmt = con.createStatement();
-				// 여기에 써라~~ 조회수 증가 sql문 (update)
-				String sql2 = " UPDATE BOARD"
-						+ " SET VIEWS = VIEWS + 1"
-						+ " WHERE no = ?";
-
-				psmt.setInt(1, no); // ?(1) <-- no (글번호)
-
-				// // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
-				rs = stmt.executeQuery(sql2);
-
+				System.out.println("조회완료");
 			}
 		} catch (SQLException e) {
 			System.err.println("게시글 조회 시, 예외 발생");
@@ -158,33 +159,6 @@ public class BoardDAO extends JDBConnection {
 		}
 		return result;
 	}
-
-	// 뷰
-	// public Board updateView(int no) {
-
-	// // 게시글 정보 객체 생성
-	// Board board = new Board();
-
-	// // SQL 작성
-	// String sql = " UPDATE BOARD"
-	// + " SET VIEWS = VIEWS + 1"
-	// + " WHERE no = ?";
-	// try {
-	// // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
-	// psmt = con.prepareStatement(sql);
-
-	// // psmt.setXXX( 순서번호, 매핑할 값 );
-	// psmt.setInt(1, no); // ?(1) <-- no (글번호)
-
-	// // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
-	// rs = psmt.executeQuery();
-	// } catch (SQLException e) {
-	// System.err.println("조회수 증가 시, 예외 발생");
-	// e.printStackTrace();
-	// }
-	// // 게시글 정보 1건 반환
-	// return board;
-	// }
 
 	// 데이터 삭제
 	public int delete(int no) {

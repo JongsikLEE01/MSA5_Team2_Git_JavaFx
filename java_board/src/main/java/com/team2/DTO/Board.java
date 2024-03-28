@@ -21,7 +21,7 @@ public class Board {
 	private String content;
 	private Date regDate;
 	private Date updDate;
-	private int view;
+	private int views;
 
 	// 생성자
 	public Board() {
@@ -84,12 +84,12 @@ public class Board {
 		this.updDate = updDate;
 	}
 
-	public int getView() {
-		return view;
+	public int getViews() {
+		return views;
 	}
 
-	public void setView(int view) {
-		this.view = view;
+	public void setViews(int views) {
+		this.views = views;
 	}
 
 	@Override

@@ -84,7 +84,7 @@ public class ListController implements Initializable {
 		colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
 		colWriter.setCellValueFactory(new PropertyValueFactory<>("Writer"));
 		colRegDate.setCellValueFactory(new PropertyValueFactory<>("RegDate"));
-		colView.setCellValueFactory(new PropertyValueFactory<>("View"));
+		colView.setCellValueFactory(new PropertyValueFactory<>("Views"));
 
 		// 테이블뷰에 데이터 추가하기
 		ObservableList<Board> list = FXCollections.observableArrayList(boardList);
