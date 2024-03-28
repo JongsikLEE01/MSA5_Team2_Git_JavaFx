@@ -9,8 +9,6 @@ import com.team2.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -48,5 +46,16 @@ public class InsertController {
     @FXML
     void moveToList(ActionEvent event) throws IOException {
         App.setRoot("board/list");
+    }<<<<<<<HEAD
+
+    // 글쓰기
+    public void insert(ActionEvent event) throws IOException {
+        Board board = new Board (tTtile.getText(), tWriter.getText(), tContent.getText());
+        int result = boardService.insert(board);
+
+        if(result > 0) {
+            System.out.println("글쓰기 처리 성공");
+            App.setRoot("board/list");
+        }
     }
-}
+}=======}>>>>>>>629 ad16308f500e6bdf5053aa8f4348f06dd24c7
