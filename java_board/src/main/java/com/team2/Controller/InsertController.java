@@ -29,7 +29,17 @@ public class InsertController {
     // 글쓰기 -> 목록
     @FXML
     void moveToInsert(ActionEvent event) throws IOException {
+        Board board = new Board(tTtile.getText(), tWriter.getText(), tContent.getText());
 
+        int result = boardService.insert(board);
+        if (result > 0) {
+            System.out.println("게시글이 등록이 실패했습니다.");
+
+        } else {
+            System.out.println("게시글이 등록이 실패했습니다.");
+        }
+
+        // }
         App.setRoot("board/list");
     }
 
@@ -38,6 +48,7 @@ public class InsertController {
     void moveToList(ActionEvent event) throws IOException {
         App.setRoot("board/list");
     }
+<<<<<<< HEAD
 
     // 글쓰기
     public void insert(ActionEvent event) throws IOException {
@@ -50,3 +61,6 @@ public class InsertController {
         }
     }
 }
+=======
+}
+>>>>>>> 629ad16308f500e6bdf5053aa8f4348f06dd24c7

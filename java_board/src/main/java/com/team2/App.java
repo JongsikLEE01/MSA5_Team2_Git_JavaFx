@@ -13,13 +13,15 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
+
+// 조회수 높이는 거 : 검색 버튼을 눌렀을때 조회수 1씩 증가
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("board/login"), 900, 650);
+        scene = new Scene(loadFXML("board/login"));
         stage.setScene(scene);
         stage.show();
     }
@@ -34,7 +36,11 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         //JDBConnection jdbc = new JDBConnection();
+=======
+        JDBConnection jdbc = new JDBConnection();
+>>>>>>> 629ad16308f500e6bdf5053aa8f4348f06dd24c7
         launch();
     }
 }
