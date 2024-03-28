@@ -1,6 +1,7 @@
 package com.team2.Controller;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import com.team2.App;
 import com.team2.DTO.Board;
@@ -9,10 +10,12 @@ import com.team2.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-// implements Initializable
 public class SelectController {
 
     @FXML
@@ -36,19 +39,29 @@ public class SelectController {
 
         Board board = new Board(tTtile.getText(), tWriter.getText(), tContent.getText());
 
-        // 수정할 게시글 번호와 수정될 게시글의 번호가 맞는지 확인
-        // if (board.getNo() == srcNo) {
-        board.setNo(srcNo);
-        int result = boardService.update(board);
-        if (result > 0) {
-            System.out.println("게시글이 수정이 실패했습니다.");
+        // 알림창
+        Alert alertDel = new Alert(AlertType.CONFIRMATION);
+        Alert alertBack = new Alert(AlertType.INFORMATION);
+        alertDel.setTitle("게시글 수정");
+        alertDel.setHeaderText("정말 수정하시겠습니까?");
+        alertDel.setContentText("수정된 내용은 되돌릴 수 없습니다.");
+        Optional<ButtonType> result1 = alertDel.showAndWait();
 
+        // 수정 확인
+        if (result1.get() == ButtonType.OK) {
+            board.setNo(srcNo);
+            int result = boardService.update(board);
+            alertBack.setContentText("수정이 되었습니다.");
+            alertBack.show();
+            App.setRoot("board/list");
         } else {
-            System.out.println("게시글이 수정이 실패했습니다.");
+            alertBack.setContentText("수정이 취소되었습니다.");
+            alertBack.show();
         }
 
-        // }
-        App.setRoot("board/list");
+        // 수정할 게시글 번호와 수정될 게시글의 번호가 맞는지 확인
+        // if (board.getNo() == srcNo) {
+
     }
 
     // 수정 취소 -> 목록
@@ -74,11 +87,4 @@ public class SelectController {
         tWriter.setText(board.getWriter());
         tContent.setText(board.getContent());
     }
-
-    // @Override
-    // public void initialize(URL arg0, ResourceBundle arg1) {
-    // // int no = Integer.valueOf(tTtile.getText());
-    // // sm.read(no);
-    // }
-
 }
