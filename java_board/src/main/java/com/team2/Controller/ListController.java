@@ -105,32 +105,32 @@ public class ListController implements Initializable {
 
 		boardTableView.setItems(list);
 
-		boardTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent e) {
-				if (e.getClickCount() == 2 && boardTableView.getSelectionModel().getSelectedItem() != null) {
-					int BoardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
-					System.out.println("글번호 : " + BoardNo);
-					try {
-						FXMLLoader FXL = new FXMLLoader(getClass().getResource("/com/team2/board/select.fxml"));
-						Parent root = FXL.load();
+	// 	boardTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	// 		public void handle(MouseEvent e) {
+	// 			if (e.getClickCount() == 2 && boardTableView.getSelectionModel().getSelectedItem() != null) {
+	// 				int BoardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
+	// 				System.out.println("글번호 : " + BoardNo);
+	// 				try {
+	// 					FXMLLoader FXL = new FXMLLoader(getClass().getResource("/com/team2/board/select.fxml"));
+	// 					Parent root = FXL.load();
 
-						System.out.println("FXL : " + FXL.toString());
-						SelectController sc = FXL.getController();
-						System.out.println("sc : " + sc);
-						sc.read(BoardNo);
+	// 					System.out.println("FXL : " + FXL.toString());
+	// 					SelectController sc = FXL.getController();
+	// 					System.out.println("sc : " + sc);
+	// 					sc.read(BoardNo);
 
-						Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-						Scene scene = new Scene(root);
-						stage.setScene(scene);
-						stage.show();
-						// App.setRoot("board/select");
+	// 					Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+	// 					Scene scene = new Scene(root);
+	// 					stage.setScene(scene);
+	// 					stage.show();
+	// 					// App.setRoot("board/select");
 
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-			}
-		});
-	}
+	// 				} catch (IOException e1) {
+	// 					// TODO Auto-generated catch block
+	// 					e1.printStackTrace();
+	// 				}
+	// 			}
+	// 		}
+	// 	});
+	 }
 }

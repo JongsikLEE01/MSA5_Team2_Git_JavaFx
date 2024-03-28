@@ -30,7 +30,7 @@ public class JDBConnection {
 			// String url ="jdbc:oracle:thin:@localhost:1521:orcl"; // 12c이상
 			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 			String id = "joeun";
-			String pw = "1234";
+			String pw = "123456";
 			
 			// 자바 프로그램에서 JDBC 드라이버를 연결시켜주는 클래스
 			// getConnection() 메소드로 DB에 연결 요청하고 생성된 Connection 객체를 반환받는다.
