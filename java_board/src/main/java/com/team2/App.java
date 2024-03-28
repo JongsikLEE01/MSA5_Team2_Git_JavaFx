@@ -43,11 +43,8 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-        //JDBConnection jdbc = new JDBConnection();
-=======
+        // JDBConnection jdbc = new JDBConnection();
         JDBConnection jdbc = new JDBConnection();
->>>>>>> 629ad16308f500e6bdf5053aa8f4348f06dd24c7
         launch();
     }
 }
