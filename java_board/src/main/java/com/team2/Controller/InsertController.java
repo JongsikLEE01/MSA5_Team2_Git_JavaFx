@@ -33,22 +33,14 @@ public class InsertController {
         Board board = new Board(tTtile.getText(), tWriter.getText(), tContent.getText());
 
         // 알림창
-        Alert alertDel = new Alert(AlertType.CONFIRMATION);
         Alert alertBack = new Alert(AlertType.INFORMATION);
-        alertDel.setTitle("게시글 수정");
-        alertDel.setHeaderText("정말 수정하시겠습니까?");
-        alertDel.setContentText("수정된 내용은 되돌릴 수 없습니다.");
 
         int result = boardService.insert(board);
-        if (result > 0) {
-            alertBack.setContentText("글이 작성되었습니다.");
-            alertBack.show();
-        } else {
-            alertBack.setContentText("글쓰기가 취소되었습니다.");
-            alertBack.show();
-        }
 
-        // }
+        if (result < 0)
+            alertBack.setContentText("글 업로드가 완료되었습니다.");
+        else
+            alertBack.setContentText("글 업로드가 실패했습니다.");
         App.setRoot("board/list");
     }
 

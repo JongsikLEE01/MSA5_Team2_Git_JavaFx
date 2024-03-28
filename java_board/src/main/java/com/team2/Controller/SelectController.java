@@ -51,11 +51,11 @@ public class SelectController {
         if (result1.get() == ButtonType.OK) {
             board.setNo(srcNo);
             boardService.update(board);
-            alertBack.setContentText("수정이 되었습니다.");
+            alertBack.setContentText("게시글이 수정 되었습니다.");
             alertBack.show();
             App.setRoot("board/list");
         } else {
-            alertBack.setContentText("수정이 취소되었습니다.");
+            alertBack.setContentText("게시글 수정이 취소되었습니다.");
             alertBack.show();
         }
     }
