@@ -16,6 +16,9 @@ import javafx.scene.control.TextField;
 public class SelectController {
 
     @FXML
+    private TextField SearchT;
+
+    @FXML
     public TextArea tContent;
     @FXML
     public TextField tTtile;
@@ -32,6 +35,7 @@ public class SelectController {
         tTtile.setText(board.getTitle());
         tWriter.setText(board.getWriter());
         tContent.setText(board.getContent());
+        
     }
 
     // 글 수정 완료 -> 목록
@@ -44,6 +48,22 @@ public class SelectController {
     @FXML
     void moveToList(ActionEvent event) throws IOException {
         App.setRoot("board/list");
+        System.out.println(1);
+    }
+
+    @FXML
+    void searchBtn(ActionEvent event) {
+        int srcNo = 0;
+        SearchT.getText();
+        srcNo = Integer.parseInt(SearchT.getText());
+
+        boardService.select(srcNo);
+
+        Board board = new Board();
+        board = boardService.select(srcNo);
+        tTtile.setText(board.getTitle());
+        tWriter.setText(board.getWriter());
+        tContent.setText(board.getContent());
     }
 
     // @Override
