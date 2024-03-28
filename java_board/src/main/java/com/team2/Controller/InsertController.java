@@ -3,6 +3,9 @@ package com.team2.Controller;
 import java.io.IOException;
 
 import com.team2.App;
+import com.team2.DTO.Board;
+import com.team2.Service.BoardService;
+import com.team2.Service.BoardServiceImpl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,10 +23,22 @@ public class InsertController {
     @FXML
     private TextField tWriter;
 
+    private BoardService boardService = new BoardServiceImpl();
+
     // 글쓰기 -> 목록
     @FXML
     void moveToInsert(ActionEvent event) throws IOException {
+        Board board = new Board(tTtile.getText(), tWriter.getText(), tContent.getText());
 
+        int result = boardService.insert(board);
+        if (result > 0) {
+            System.out.println("게시글이 등록이 실패했습니다.");
+
+        } else {
+            System.out.println("게시글이 등록이 실패했습니다.");
+        }
+
+        // }
         App.setRoot("board/list");
     }
 

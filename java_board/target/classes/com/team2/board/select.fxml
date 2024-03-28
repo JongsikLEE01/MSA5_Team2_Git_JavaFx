@@ -14,27 +14,27 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="tTtile" layoutX="258.0" layoutY="89.0" prefHeight="50.0" prefWidth="584.0">
+      <TextField fx:id="tTtile" layoutX="226.0" layoutY="176.0" prefHeight="37.0" prefWidth="584.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="123.0" layoutY="96.0" text="제목">
+      <Label layoutX="135.0" layoutY="176.0" text="제목">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="tWriter" layoutX="258.0" layoutY="165.0" prefHeight="59.0" prefWidth="584.0">
+      <TextField fx:id="tWriter" layoutX="226.0" layoutY="233.0" prefHeight="37.0" prefWidth="584.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="107.0" layoutY="176.0" text="작성자">
+      <Label layoutX="107.0" layoutY="233.0" text="작성자">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <TextArea fx:id="tContent" layoutX="107.0" layoutY="288.0" prefHeight="241.0" prefWidth="735.0">
+      <TextArea fx:id="tContent" layoutX="107.0" layoutY="328.0" prefHeight="201.0" prefWidth="735.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -49,20 +49,25 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Label layoutX="108.0" layoutY="237.0" text="글내용">
+      <Label layoutX="107.0" layoutY="288.0" text="글내용">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="239.0" layoutY="29.0" mnemonicParsing="false" onAction="#searchBtn" prefHeight="31.0" prefWidth="93.0" text="검색">
+      <Button layoutX="764.0" layoutY="115.0" mnemonicParsing="false" onAction="#searchBtn" prefHeight="31.0" prefWidth="93.0" text="검색">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <TextField fx:id="SearchT" layoutX="44.0" layoutY="33.0" prefHeight="0.0" prefWidth="182.0">
+      <TextField fx:id="SearchT" layoutX="626.0" layoutY="119.0" prefHeight="38.0" prefWidth="117.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
+      <Label layoutX="447.0" layoutY="119.0" text="현재 게시글">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

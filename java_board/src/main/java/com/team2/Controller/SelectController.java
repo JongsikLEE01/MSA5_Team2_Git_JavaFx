@@ -27,20 +27,27 @@ public class SelectController {
 
     private BoardService boardService = new BoardServiceImpl();
 
-    // 글 조회
-    public void read(int boardNo) {
-        System.out.println("read - boardNo : " + boardNo);
-        Board board = boardService.select(boardNo);
-
-        tTtile.setText(board.getTitle());
-        tWriter.setText(board.getWriter());
-        tContent.setText(board.getContent());
-        
-    }
-
     // 글 수정 완료 -> 목록
     @FXML
     void moveToUpdate(ActionEvent event) throws IOException {
+        int srcNo = 0;
+        SearchT.getText();
+        srcNo = Integer.parseInt(SearchT.getText());
+
+        Board board = new Board(tTtile.getText(), tWriter.getText(), tContent.getText());
+
+        // 수정할 게시글 번호와 수정될 게시글의 번호가 맞는지 확인
+        // if (board.getNo() == srcNo) {
+        board.setNo(srcNo);
+        int result = boardService.update(board);
+        if (result > 0) {
+            System.out.println("게시글이 수정이 실패했습니다.");
+
+        } else {
+            System.out.println("게시글이 수정이 실패했습니다.");
+        }
+
+        // }
         App.setRoot("board/list");
     }
 
@@ -51,6 +58,7 @@ public class SelectController {
         System.out.println(1);
     }
 
+    // 조회
     @FXML
     void searchBtn(ActionEvent event) {
         int srcNo = 0;
@@ -61,6 +69,7 @@ public class SelectController {
 
         Board board = new Board();
         board = boardService.select(srcNo);
+        // srcNo = boardService.updateView(srcNo);
         tTtile.setText(board.getTitle());
         tWriter.setText(board.getWriter());
         tContent.setText(board.getContent());
