@@ -11,7 +11,6 @@ import com.team2.DTO.Board;
  * - 게시글 데이터 접근
  */
 public class BoardDAO extends JDBConnection {
-
 	// 데이터 목록
 	public List<Board> list() {
 
