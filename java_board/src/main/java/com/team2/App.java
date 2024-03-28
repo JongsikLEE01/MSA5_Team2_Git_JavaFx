@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 
- //  조회수 높이는 거 : 검색 버튼을 눌렀을때 조회수 1씩 증가
+// 조회수 높이는 거 : 검색 버튼을 눌렀을때 조회수 1씩 증가
 public class App extends Application {
 
     private static Scene scene;

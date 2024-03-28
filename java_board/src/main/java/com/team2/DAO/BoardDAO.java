@@ -85,16 +85,16 @@ public class BoardDAO extends JDBConnection {
 				board.setRegDate(rs.getTimestamp("reg_date"));
 				board.setUpdDate(rs.getTimestamp("upd_date"));
 
-				// 여기에 써라~~ 조회수 증가 sql문 (update) 
+				// 여기에 써라~~ 조회수 증가 sql문 (update)
 				sql = " UPDATE BOARD"
-				    + " SET VIEWS = VIEWS + 1"
-					+ " WHERE no = ?";
- 				stmt = con.createStatement();
+						+ " SET VIEWS = VIEWS + 1"
+						+ " WHERE no = ?";
+				stmt = con.createStatement();
 
 				psmt.setInt(1, no); // ?(1) <-- no (글번호)
 
 				// // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
-				rs = stmt.executeQuery(sql); 
+				rs = stmt.executeQuery(sql);
 
 			}
 		} catch (SQLException e) {
