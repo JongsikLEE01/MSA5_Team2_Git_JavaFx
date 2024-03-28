@@ -40,7 +40,6 @@ public class InsertController {
 
         // }
         App.setRoot("board/list");
-        App.setRoot("board/list");
     }
 
     // 글쓰기 취소 -> 목록
