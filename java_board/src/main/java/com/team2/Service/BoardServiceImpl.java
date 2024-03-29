@@ -69,4 +69,10 @@ public class BoardServiceImpl implements BoardService {
 		int result = boardDAO.login(id, pw);
 		return result;
 	}
+
+	@Override
+	public int join(String id, String pw, String name, int age) {
+		int result = boardDAO.join(id, pw, name, age);
+		return result;
+	}
 }

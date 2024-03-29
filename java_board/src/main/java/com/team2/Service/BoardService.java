@@ -30,8 +30,9 @@ public interface BoardService {
 	// 게시글 삭제
 	int delete(int no);
 
-	// public Board updateView(int no)
-
-	//로그인
+	// 로그인
 	int login(String id, String pw);
+
+	// 회원 가입
+	int join(String id, String pw, String name, int age);
 }

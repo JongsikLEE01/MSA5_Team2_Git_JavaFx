@@ -12,9 +12,9 @@ import com.team2.DTO.Board;
  */
 public class BoardDAO extends JDBConnection {
 
+	// 로그인
 	public int login(String a, String b) {
 		// SQL 작성
-
 		System.out.println("제대로 가져오니? " + a + "와" + b);
 		int result = 0;
 
@@ -22,6 +22,32 @@ public class BoardDAO extends JDBConnection {
 				+ " FROM LOGIN "
 				+ " WHERE TID = ? "
 				+ " AND TPW = ? ";
+		return result;
+	}
+
+	// 회원가입
+	public int join(String id, String pw, String name, int age) {
+		int result = 0; // 결과 : 적용된 데이터 건수
+
+		String sql = " Insert into BOARD_USER ( NO , TPW , TID , NAME , AGE ) "
+				+ " values (SEQ_USER.NEXTVAL, ? , ? , ? , ? ) ";
+
+		try {
+			psmt = con.prepareStatement(sql); // 쿼리 실행 객체 생성
+			psmt.setString(1, id); // 1번 ? 에 제목 매핑
+			psmt.setString(2, pw); // 2번 ? 에 작성자 매핑
+			psmt.setString(3, name); // 3번 ? 에 내용을 매핑
+			psmt.setInt(4, age); // 3번 ? 에 내용을 매핑
+
+			result = psmt.executeUpdate(); // SQL 실행 요청, 적용된 데이터 개수를 받아온다.
+											// 게시글 1개 적용 성공 시, result : 1
+											// 실패 시, result : 0
+			// executeUpdate()
+			// : SQL (INSERT, UPDATE, DELETE)을 실행하고 적용된 데이터 개수를 int 타입으로 반환
+		} catch (SQLException e) {
+			System.err.println("유저 회원가입 시, 예외 발생");
+			e.printStackTrace();
+		}
 		return result;
 	}
 
