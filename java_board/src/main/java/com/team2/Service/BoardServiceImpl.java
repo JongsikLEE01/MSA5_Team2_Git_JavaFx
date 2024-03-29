@@ -63,4 +63,9 @@ public class BoardServiceImpl implements BoardService {
 		// 1 --> 데이터 삭제 성공
 		return result;
 	}
+
+	@Override
+	public int login(String id, String pw) {
+		int result = boardDAO.login(id, pw);
+		return result;
 }
