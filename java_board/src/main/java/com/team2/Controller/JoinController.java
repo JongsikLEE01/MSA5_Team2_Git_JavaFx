@@ -11,9 +11,16 @@ import javafx.scene.control.TextField;
 public class JoinController {
 
     @FXML
-    private TextField tid;
+    private TextField tAge;
+
     @FXML
-    private TextField tpwd;
+    private TextField tId;
+
+    @FXML
+    private TextField tNmae;
+
+    @FXML
+    private TextField tPwd;
 
     @FXML
     void cansle(ActionEvent event) throws IOException {

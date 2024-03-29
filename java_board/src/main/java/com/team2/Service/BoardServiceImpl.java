@@ -36,7 +36,7 @@ public class BoardServiceImpl implements BoardService {
 	public int insert(Board board) {
 		// 1. 게시글 정보를 전달하여 게시글 데이터 등록 요청
 		int result = boardDAO.insert(board);
-		
+
 		// 2. 적용된 데이터 건수를 반환
 		// - 결과 : 0 --> 데이터 등록 실패
 		// 1 --> 데이터 등록 성공
@@ -68,4 +68,5 @@ public class BoardServiceImpl implements BoardService {
 	public int login(String id, String pw) {
 		int result = boardDAO.login(id, pw);
 		return result;
+	}
 }

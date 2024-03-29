@@ -74,7 +74,7 @@ public class SelectController {
         SearchT.getText();
         srcNo = Integer.parseInt(SearchT.getText());
 
-        boardService.select(srcNo);
+        // boardService.select(srcNo);
 
         Board board = new Board();
         board = boardService.select(srcNo);

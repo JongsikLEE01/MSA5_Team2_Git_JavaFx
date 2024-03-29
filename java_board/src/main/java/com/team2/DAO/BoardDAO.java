@@ -13,17 +13,18 @@ import com.team2.DTO.Board;
 public class BoardDAO extends JDBConnection {
 
 	public int login(String a, String b) {
-		// SQL 작성	
-	
+		// SQL 작성
+
 		System.out.println("제대로 가져오니? " + a + "와" + b);
 		int result = 0;
 
 		String sql = " SELECT count(*) cnt "
-				   + " FROM LOGIN "
-				   + " WHERE TID = ? "
-				   + " AND TPW = ? ";
+				+ " FROM LOGIN "
+				+ " WHERE TID = ? "
+				+ " AND TPW = ? ";
 		return result;
 	}
+
 	// 데이터 목록
 	public List<Board> list() {
 
@@ -171,33 +172,6 @@ public class BoardDAO extends JDBConnection {
 		}
 		return result;
 	}
-
-	// 뷰
-	// public Board updateView(int no) {
-
-	// // 게시글 정보 객체 생성
-	// Board board = new Board();
-
-	// // SQL 작성
-	// String sql = " UPDATE BOARD"
-	// + " SET VIEWS = VIEWS + 1"
-	// + " WHERE no = ?";
-	// try {
-	// // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
-	// psmt = con.prepareStatement(sql);
-
-	// // psmt.setXXX( 순서번호, 매핑할 값 );
-	// psmt.setInt(1, no); // ?(1) <-- no (글번호)
-
-	// // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
-	// rs = psmt.executeQuery();
-	// } catch (SQLException e) {
-	// System.err.println("조회수 증가 시, 예외 발생");
-	// e.printStackTrace();
-	// }
-	// // 게시글 정보 1건 반환
-	// return board;
-	// }
 
 	// 데이터 삭제
 	public int delete(int no) {
