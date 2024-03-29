@@ -31,4 +31,7 @@ public interface BoardService {
 	int delete(int no);
 
 	// public Board updateView(int no)
+
+	//로그인
+	int login(String id, String pw);
 }
