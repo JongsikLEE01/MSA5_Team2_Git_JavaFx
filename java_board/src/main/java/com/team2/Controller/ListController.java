@@ -107,4 +107,21 @@ public class ListController implements Initializable {
 			alertBack.show();
 		}
 	}
+
+	// 로그아웃
+	@FXML
+	void logout(ActionEvent event) throws IOException {
+		alertDel.setTitle("로그아웃");
+		alertDel.setHeaderText("로그아웃하시겠습니까?");
+		alertDel.setContentText("정말 로그아웃하시겠습니까?");
+		Optional<ButtonType> result = alertDel.showAndWait();
+
+		if (result.get() == ButtonType.OK) {
+			alertBack.setContentText("로그아웃되었습니다.");
+			App.setRoot("board/login");
+		} else {
+			alertBack.setContentText("로그아웃이 취소되었습니다.");
+			alertBack.show();
+		}
+	}
 }
