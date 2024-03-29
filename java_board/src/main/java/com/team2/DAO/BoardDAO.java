@@ -139,18 +139,18 @@ public class BoardDAO extends JDBConnection {
 				board.setRegDate(rs.getTimestamp("reg_date"));
 				board.setUpdDate(rs.getTimestamp("upd_date"));
 
-				stmt = con.createStatement();
-				// 여기에 써라~~ 조회수 증가 sql문 (update)
-				String sql2 = " UPDATE BOARD"
-						+ " SET VIEWS = VIEWS + 1"
-						+ " WHERE no = ?";
-
-				psmt.setInt(1, no); // ?(1) <-- no (글번호)
-
-				// // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
-				rs = stmt.executeQuery(sql2);
-
 			}
+			// 여기에 써라~~ 조회수 증가 sql문 (update)
+			sql = " UPDATE board SET"
+					+ " views = NVL(views, 0) + 1"
+					+ " WHERE no = ?";
+			psmt = con.prepareStatement(sql);
+
+			psmt.setInt(1, no); // ?(1) <-- no (글번호)
+
+			// 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
+			psmt.executeUpdate();
+
 		} catch (SQLException e) {
 			System.err.println("게시글 조회 시, 예외 발생");
 			e.printStackTrace();
