@@ -11,6 +11,19 @@ import com.team2.DTO.Board;
  * - 게시글 데이터 접근
  */
 public class BoardDAO extends JDBConnection {
+
+	public int login(String a, String b) {
+		// SQL 작성	
+	
+		System.out.println("제대로 가져오니? " + a + "와" + b);
+		int result = 0;
+
+		String sql = " SELECT count(*) cnt "
+				   + " FROM LOGIN "
+				   + " WHERE TID = ? "
+				   + " AND TPW = ? ";
+		return result;
+	}
 	// 데이터 목록
 	public List<Board> list() {
 
